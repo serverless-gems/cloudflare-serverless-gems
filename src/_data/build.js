@@ -14,7 +14,7 @@ module.exports = () => {
   return {
     environment: process.env.ELEVENTY_ENV,
     mode: process.env.MODE,
-    url: process.env.URL || "http://localhost:8080",
+    url: process.env.CF_PAGES_URL || "http://localhost:8080",
     timezone: process.env.TIMEZONE || "UTC",
     issues: {
       owner: "serverless-gems",
