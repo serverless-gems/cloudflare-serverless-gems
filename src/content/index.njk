@@ -1,0 +1,43 @@
+---
+layout: home.njk
+title: Serverless Gems for Cloudflare Pages
+suffix: " "
+---
+
+<div class="max-w-full prose">
+
+  <div class="md:w-3/5">
+    <h1 class="lg:text-5xl">Serverless Gems is a collection of serverless functions that you can use in your projects</h1>
+  </div>
+
+  <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+    {% set functionsList = collections.functions %}
+    {% set postslistCounter = postsCount %}
+    {% for post in functionsList %}
+      {% if post.data.title %}
+        <article class="bg-zinc-200/50 dark:bg-zinc-800 p-4 rounded">
+          <h2 class="text-lg md:text-xl m-0">
+            <a class="text-current" href="/function/{{ post.data.title | slugify }}/">{{ post.data.title }}</a>
+          </h2>
+          <p class="text-base line-clamp-4">{{ post.data.description }}</p>
+          {%- if post.data.tags|filterTagList|length %}
+            <footer class="post-tags text-sm flex">
+              <ul class="post-tags list-none flex flex-wrap gap-x-2 gap-y-1 m-0 p-0">
+                {%- for tag in post.data.tags | filterTagList | head(3) %}
+                  {%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+                  <li class="m-0 p-0">
+                    #{{ tag }}{%- if not loop.last %},{% endif %}
+{#                    <a href="{{ tagUrl }}" class="post-tag text-current">#{{ tag }}</a>{%- if not loop.last %},{% endif %}#}
+                  </li>
+                {%- endfor %}
+              </ul>
+            </footer>
+          {%- endif %}
+        </article>
+
+      {% endif %}
+    {% endfor %}
+
+  </div>
+
+</div>

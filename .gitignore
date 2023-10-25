@@ -1,0 +1,5 @@
+package-lock.json
+_site/
+node_modules/
+.netlify/
+.idea/

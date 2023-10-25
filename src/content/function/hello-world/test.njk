@@ -1,0 +1,25 @@
+<div class="p-4 border border-gray-900/10 dark:border-gray-100/10 rounded"
+x-data="{
+  iframeSrc: 'about:blank',
+  name: '',
+  submitForm() {
+    this.iframeSrc = `/api/hello-world/?name=${this.name}`
+    console.log(this.iframeSrc)
+  }
+}">
+  <form action="/api/hello-world/"
+        method="GET"
+        @submit.prevent="submitForm()"
+        @submit="submitForm()"
+        class="mb-8">
+    <fieldset class="mb-4">
+      <label for="name">Type any name:</label>
+      <input type="text" id="name" name="name" x-model="name">
+    </fieldset>
+    <input type="submit" value="Submit a test">
+  </form>
+
+  <iframe id="iframeWrap"
+          class="w-full h-32 border border-gray-900/10 dark:border-gray-100/10 rounded"
+          :src="iframeSrc"></iframe>
+</div>

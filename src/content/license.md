@@ -1,6 +1,11 @@
-MIT License
+---
+layout: prose.njk
+title: License
+description: Privacy Policy for Serverless Gems website.
+---
+# MIT License
 
-Copyright (c) 2023 Alex Zappa
+Copyright &copy; 2023 Alex Zappa
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

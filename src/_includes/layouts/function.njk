@@ -1,0 +1,57 @@
+---
+layout: base.njk
+---
+
+<div class="prose mx-auto w-full">
+
+  <nav class="flex -mt-8 select-none" aria-label="Breadcrumb">
+    <ol role="list" class="flex list-none items-center gap-2 m-0 mb-8 p-0 [&_li]:m-0 [&_li]:p-0 text-sm font-medium">
+      <li>
+        <div>
+          <a href="/" class="opacity-60 hover:opacity-100 text-zinc-600 dark:text-zinc-300 hover:!text-red-500">
+            {% phicon "house", "duotone", {
+              class: "h-5 w-5"
+            } %}
+            <span class="sr-only">Home</span>
+          </a>
+        </div>
+      </li>
+      <li>
+        {% phicon "caret-right", "regular", {
+          class: "h-4 w-4 opacity-60"
+        } %}
+      </li>
+      <li>
+        <div class="flex items-center">
+          <a href="/functions/" class="opacity-75 hover:opacity-100 text-zinc-600 dark:text-zinc-300 hover:!text-red-500">Functions</a>
+        </div>
+      </li>
+      <li>
+        {% phicon "caret-right", "regular", {
+          class: "h-4 w-4 opacity-75"
+        } %}
+      </li>
+      <li>
+        <div class="flex items-center">
+          <a href="/function/{{ title | slugify }}/" class="text-zinc-600 dark:text-zinc-300 hover:!text-red-500" aria-current="page">{{ title }}</a>
+        </div>
+      </li>
+    </ol>
+  </nav>
+
+  <h1>{{ title }}</h1>
+
+  <p>{{ description }}</p>
+
+  {{ content | safe }}
+
+  <p class="mt-8">
+    <a class="inline-flex items-center gap-2"
+       href="https://github.com/{{ build.issues.owner }}/{{ build.issues.repo }}/edit/main/src/content/function/{{ title | slugify }}/index.md">
+      {% phicon "note-pencil", "duotone", {
+        class: "h-4 w-4"
+      } %}
+      Edit this page
+    </a>
+  </p>
+</div>
