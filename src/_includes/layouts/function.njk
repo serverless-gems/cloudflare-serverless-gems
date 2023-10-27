@@ -8,7 +8,8 @@ layout: base.njk
     <ol role="list" class="flex list-none items-center gap-2 m-0 mb-8 p-0 [&_li]:m-0 [&_li]:p-0 text-sm font-medium">
       <li>
         <div>
-          <a href="/" class="opacity-60 hover:opacity-100 text-zinc-600 dark:text-zinc-300 hover:!text-red-500">
+          <a href="{{ metadata.motherShip }}"
+             class="opacity-60 hover:opacity-100 text-zinc-600 dark:text-zinc-300 hover:!text-red-500">
             {% phicon "house", "duotone", {
               class: "h-5 w-5"
             } %}
@@ -23,7 +24,7 @@ layout: base.njk
       </li>
       <li>
         <div class="flex items-center">
-          <a href="/functions/" class="opacity-75 hover:opacity-100 text-zinc-600 dark:text-zinc-300 hover:!text-red-500">Functions</a>
+          <a href="/" class="opacity-75 hover:opacity-100 text-zinc-600 dark:text-zinc-300 hover:!text-red-500">Functions</a>
         </div>
       </li>
       <li>
