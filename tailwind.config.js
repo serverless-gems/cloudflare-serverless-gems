@@ -72,6 +72,9 @@ module.exports = {
         },
         '.prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *))': {
           "@apply no-underline hover:underline": {},
+        },
+        '#responseJson': {
+          "min-height": "91px",
         }
       });
     },

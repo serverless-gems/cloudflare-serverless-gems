@@ -1,10 +1,24 @@
 import debugLog from "../_debugLog";
+/* global Prism */
 
 export default () => {
   return {
     theme: {
       dark: true,
       name: "dark",
+    },
+
+    prismJson(jsonData, elementId = "responseJson") {
+      try {
+        document.getElementById(elementId).innerHTML = Prism.highlight(
+          JSON.stringify(jsonData, null, 2),
+          Prism.languages.json,
+          "JSON"
+        );
+      } catch (error) {
+        console.error(error);
+        document.getElementById(elementId).innerHTML = error;
+      }
     },
 
     getThemeName() {

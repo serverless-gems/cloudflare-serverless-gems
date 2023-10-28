@@ -23,8 +23,5 @@ export const onRequestPost = async ({request}) => {
 
 Check the source code on [GitHub](https://github.com/{{ build.issues.owner }}/{{ build.issues.repo }}/blob/main/functions/api/{{ title | slugify }}/index.ts).
 
-
-## Test how it works
-
 {% include "./test.njk" %}
 

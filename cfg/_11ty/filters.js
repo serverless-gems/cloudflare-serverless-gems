@@ -42,7 +42,8 @@ module.exports = {
   },
 
   includes: (haystack, needle) => {
-    if (typeof haystack !== "string") return false;
+    if ( typeof haystack === 'undefined' || typeof needle === 'undefined' )
+      return false;
     return haystack.includes(needle);
   },
 

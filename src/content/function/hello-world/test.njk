@@ -1,10 +1,25 @@
-<div class="p-4 border border-gray-900/10 dark:border-gray-100/10 rounded"
-x-data="{
-  iframeSrc: 'about:blank',
+<div class="mt-12 relative p-4 pt-8 border border-gray-900/10 dark:border-gray-100/10 rounded"
+     x-data="{
   name: '',
+  submitButton: 'Submit a test',
   submitForm() {
-    this.iframeSrc = `/api/hello-world/?name=${this.name}`
-    console.log(this.iframeSrc)
+    this.submitButton = 'Submitting...'
+    try {
+      axios.get('/api/hello-world/', {
+        params: { name: this.name }
+      }).then((response) => {
+        this.prismJson(response.data)
+        this.submitButton = 'Submit a test'
+      }).catch((error) => {
+        console.error(error)
+        this.prismJson(error, 'responseJson')
+        this.submitButton = 'Submit a test'
+      })
+    } catch (error) {
+      console.error(error)
+      this.prismJson(error, 'responseJson')
+      this.submitButton = 'Submit a test'
+    }
   }
 }">
   <form action="/api/hello-world/"
@@ -13,13 +28,17 @@ x-data="{
         @submit="submitForm()"
         class="mb-8">
     <fieldset class="mb-4">
+      <legend class="absolute -top-12 bg-zinc-50 dark:bg-zinc-900 m-0 leading-none">
+        <h2 class="text-xl inline m-0 p1">Test how it works</h2>
+      </legend>
       <label for="name">Type any name:</label>
       <input type="text" id="name" name="name" x-model="name">
     </fieldset>
-    <input type="submit" value="Submit a test">
+    <input type="submit" :value="submitButton" value="Submit a test">
   </form>
 
-  <iframe id="iframeWrap"
-          class="w-full h-32 border border-gray-900/10 dark:border-gray-100/10 rounded"
-          :src="iframeSrc"></iframe>
+  <pre id="responseJson" class="language-json">
+    {# Silence is golden #}
+  </pre>
+
 </div>
