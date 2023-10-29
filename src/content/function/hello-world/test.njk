@@ -1,31 +1,36 @@
 <div class="mt-12 relative p-4 pt-8 border border-gray-900/10 dark:border-gray-100/10 rounded"
      x-data="{
-  name: '',
-  submitButton: 'Submit a test',
-  submitForm() {
-    this.submitButton = 'Submitting...'
-    try {
-      axios.get('/api/hello-world/', {
-        params: { name: this.name }
-      }).then((response) => {
-        this.prismJson(response.data)
-        this.submitButton = 'Submit a test'
-      }).catch((error) => {
-        console.error(error)
-        this.prismJson(error, 'responseJson')
-        this.submitButton = 'Submit a test'
-      })
-    } catch (error) {
-      console.error(error)
-      this.prismJson(error, 'responseJson')
-      this.submitButton = 'Submit a test'
-    }
-  }
-}">
+       name: '',
+       submitButton: 'Submit a test',
+       executionDuration: 0,
+       submitForm() {
+         this.submitButton = 'Submitting...'
+         this.executionDuration = 0
+         let timer = performance.now()
+         try {
+           axios.get('/api/hello-world/', {
+             params: { name: this.name }
+           }).then((response) => {
+             this.executionDuration = (performance.now() - timer).toFixed(2)
+             console.log(`Request took ${this.executionDuration}ms`)
+             console.log(response)
+             this.prismJson(response.data)
+             this.submitButton = 'Submit a test'
+           }).catch((error) => {
+             console.error(error)
+             this.prismJson(error, 'responseJson')
+             this.submitButton = 'Submit a test'
+           })
+         } catch (error) {
+           console.error(error)
+           this.prismJson(error, 'responseJson')
+           this.submitButton = 'Submit a test'
+         }
+       }
+     }">
   <form action="/api/hello-world/"
         method="GET"
         @submit.prevent="submitForm()"
-        @submit="submitForm()"
         class="mb-8">
     <fieldset class="mb-4">
       <legend class="absolute -top-12 bg-zinc-50 dark:bg-zinc-900 m-0 leading-none">
@@ -37,8 +42,12 @@
     <input type="submit" :value="submitButton" value="Submit a test">
   </form>
 
-  <pre id="responseJson" class="language-json">
-    {# Silence is golden #}
-  </pre>
-
+  <div class="relative">
+    <span class="absolute -top-5 right-1 text-xs" x-cloak x-show="executionDuration">
+      Execution Duration: <span x-text="executionDuration">0</span>ms
+    </span>
+    <pre id="responseJson" class="language-json">
+      {# Silence is golden #}
+    </pre>
+  </div>
 </div>
