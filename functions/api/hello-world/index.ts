@@ -1,4 +1,6 @@
-// Hello World API
+/**
+ * @link https://cloudflare.serverless-gems.dev/function/hello-world/
+ */
 
 // GET requests to /filename?name=<name> would return "Hello, <name>!"
 export const onRequestGet = async ({request}) => {
