@@ -14,7 +14,7 @@ module.exports = () => {
   return {
     environment: process.env.ELEVENTY_ENV || "development",
     mode: process.env.MODE,
-    url: process.env.ELEVENTY_ENV === "production" ? "https://serverless-gems.pages.dev" : "http://localhost:8080",
+    url: process.env.ELEVENTY_ENV === "production" ? "https://cloudflare.serverless-gems.dev" : "http://localhost:8080",
     timezone: process.env.TIMEZONE || "UTC",
     issues: {
       owner: "serverless-gems",
