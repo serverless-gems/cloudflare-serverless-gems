@@ -46,7 +46,7 @@ module.exports = {
           "--tw-prose-captions": "#6b7280",
           "--tw-prose-kbd": "#111827",
           "--tw-prose-kbd-shadows": "17 24 39",
-          "--tw-prose-code": "#111827",
+          "--tw-prose-code": "#d4d4d4",
           "--tw-prose-pre-code": "#e5e7eb",
           "--tw-prose-pre-bg": "#1f2937",
           "--tw-prose-th-borders": "#d1d5db",
