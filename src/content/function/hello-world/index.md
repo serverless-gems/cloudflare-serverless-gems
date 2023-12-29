@@ -4,6 +4,12 @@ description: It`s a simple function that returns a string.
 tags: [example]
 ---
 
+The Hello World function is a simple function that returns the string "Hello [name]!", where [name] is either the value provided in the name query parameter for a `GET` request or the value provided in the name field of the request body for a `POST` request.
+
+The function uses the event and context parameters and logs them to the console. It handles both `GET` and `POST` requests and returns a JSON response with a message field containing the personalized greeting.
+
+The source code for the function:
+
 ```ts
 // GET requests to /filename?name=<name> would return "Hello, <name>!"
 export const onRequestGet = async ({request}) => {
