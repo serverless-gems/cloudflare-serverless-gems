@@ -23,7 +23,7 @@
   textarea,
   select,
   .FormControl {
-    @apply block w-full rounded border border-gray-300 bg-zinc-100 dark:bg-zinc-300 text-gray-900 placeholder:text-zinc-900;
+    @apply block w-full rounded border border-gray-300 bg-zinc-100 dark:bg-zinc-300 text-gray-900 placeholder:text-zinc-500;
 
     /* font-size: 1rem; */
     /* line-height: 1.5rem; */
@@ -55,6 +55,9 @@
   }
 
   [type="submit"] {
-    @apply rounded bg-red-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600;
+    @apply rounded bg-red-600 shadow-sm hover:bg-red-500;
+    @apply px-3.5 py-2.5 cursor-pointer;
+    @apply text-sm font-semibold text-white;
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600;
   }
 }
