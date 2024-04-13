@@ -4,7 +4,7 @@ import colorScheme from "./_detectColorScheme";
 
 const {trackEvent, trackPageview, enableAutoOutboundTracking} = Plausible({
   domain: "serverless-gems.dev",
-  apiHost: "https://firebird.sunnypixels.workers.dev/api/event",
+  apiHost: "https://firebird.beastful.org/api/event",
 });
 
 document.addEventListener("DOMContentLoaded", () => {
