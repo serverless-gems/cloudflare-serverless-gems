@@ -1,4 +1,4 @@
-import isbot from "isbot";
+import {isbot} from "isbot";
 import Plausible from "plausible-tracker";
 import colorScheme from "./_detectColorScheme";
 
